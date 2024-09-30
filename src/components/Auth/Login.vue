@@ -1,4 +1,5 @@
 <template>
+  <n-button @click="logout"> logout </n-button>
   <n-form
     ref="formRef"
     :label-width="80"
@@ -82,4 +83,27 @@ const rules = {
 
 // Example size property for form components
 const size = ref("medium");
+
+//logout
+// Logout function to clear the token and perform any additional logout actions
+const logout = async () => {
+  try {
+    // Optionally, make an API call to logout on the server
+    await axios.post(
+      "/api/logout",
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+  } catch (error) {
+    console.error("Error logging out:", error);
+  } finally {
+    // Clear the token from local storage
+    localStorage.removeItem("token");
+    alert("Logout successful!");
+  }
+};
 </script>
