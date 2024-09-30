@@ -1,21 +1,24 @@
 <template>
-  <Navbar />
-  <div class="container">
-    <router-view></router-view>
-  </div>
+  <n-config-provider :theme-overrides="themeOverrides">
+    <Navbar />
+    <div class="container">
+      <router-view></router-view>
+    </div>
+  </n-config-provider>
 </template>
 
 <script setup>
+import { NConfigProvider } from "naive-ui";
+
 import Navbar from "@/components/Navbar/Index.vue";
 
-import { computed } from "vue";
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-
-const appClass = computed(() => {
-  return route.path === "/" ? "full-width" : "max-width";
-});
+const themeOverrides = {
+  common: {
+    primaryColor: "#8A2BE2",
+    primaryColorHover: "#9B42F5",
+    primaryColorPressed: "#6E23B7",
+  },
+};
 </script>
 
 <style scoped>

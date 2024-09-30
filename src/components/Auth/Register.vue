@@ -1,4 +1,9 @@
 <template>
+  <div class="my-4">
+    <div class="text-4xl font-bold">Create an account</div>
+    <div class="text-lg text-gray-500">to start using produck.ai</div>
+  </div>
+
   <n-form
     ref="formRef"
     :label-width="100"
@@ -7,15 +12,15 @@
     :size="size"
     class="w-full md:w-1/2"
   >
-    <n-form-item label="Name" path="name" class="mb-4">
+    <n-form-item label="Name" path="name" class="mb-2">
       <n-input v-model:value="formValue.name" placeholder="Input Name" />
     </n-form-item>
 
-    <n-form-item label="Email" path="email" class="mb-4">
+    <n-form-item label="Email" path="email" class="mb-2">
       <n-input v-model:value="formValue.email" placeholder="Input Email" />
     </n-form-item>
 
-    <n-form-item label="Password" path="password" class="mb-4">
+    <n-form-item label="Password" path="password" class="mb-2">
       <n-input
         v-model:value="formValue.password"
         type="password"
@@ -23,7 +28,7 @@
       />
     </n-form-item>
 
-    <n-form-item label="Confirm Password" path="c_password" class="mb-4">
+    <n-form-item label="Confirm Password" path="c_password" class="mb-2">
       <n-input
         v-model:value="formValue.c_password"
         type="password"
@@ -31,14 +36,27 @@
       />
     </n-form-item>
 
-    <n-button @click="register" color="#8a2be2">Register</n-button>
+    <n-button @click="register" color="#8a2be2" size="medium"
+      ><span class="text-lg">Sign Up</span></n-button
+    >
   </n-form>
+
+  <div class="mt-2 text-lg text-gray-500">
+    Have an account?
+    <span class="underline cursor-pointer" @click="navigateTo('/login')"
+      >Sign in</span
+    >
+    now!
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import axios from "@/utils/axios.js";
 import { NFormItem, NForm, NInput, NButton } from "naive-ui";
+import useNavigateTo from "../../utils/router";
+
+const navigateTo = useNavigateTo();
 
 // Form data with name, email, password, and confirmed password fields
 const emptyFormValue = {

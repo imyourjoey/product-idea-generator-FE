@@ -1,5 +1,10 @@
 <template>
-  <n-button @click="logout"> logout </n-button>
+  <!-- <n-button @click="logout"> logout </n-button> -->
+  <div class="my-4">
+    <div class="text-4xl font-bold">Sign in to your account!</div>
+    <div class="text-lg text-gray-500">Enter your credentials to sign in</div>
+  </div>
+
   <n-form
     ref="formRef"
     :label-width="80"
@@ -8,10 +13,10 @@
     :size="size"
     class="w-full md:w-1/2"
   >
-    <n-form-item label="Email" path="email" class="mb-4">
+    <n-form-item label="Email" path="email" class="mb-2">
       <n-input v-model:value="formValue.email" placeholder="Input Email" />
     </n-form-item>
-    <n-form-item label="Password" path="password" class="mb-4">
+    <n-form-item label="Password" path="password" class="mb-2">
       <n-input
         v-model:value="formValue.password"
         type="password"
@@ -20,13 +25,25 @@
     </n-form-item>
   </n-form>
 
-  <n-button @click="login" color="#8a2be2">Submit</n-button>
+  <n-button @click="login" type="primary" size="large"
+    ><span class="font-medium text-lg">Log In</span></n-button
+  >
+
+  <div class="mt-2 text-lg text-gray-500">
+    Don't have an account?
+    <span class="underline cursor-pointer" @click="navigateTo('/register')"
+      >Sign up</span
+    >
+    now!
+  </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import axios from "@/utils/axios.js";
 import { NFormItem, NForm, NInput, NButton } from "naive-ui";
+import useNavigateTo from "../../utils/router";
+const navigateTo = useNavigateTo();
 
 // Form data with email and password fields
 const formValue = ref({
