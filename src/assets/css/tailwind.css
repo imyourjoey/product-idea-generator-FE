@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
+@layer components {
   .title-3xl {
     @apply font-poppinsBold text-3xl text-primary-black;
   }
@@ -46,4 +46,4 @@
   .custom-date-picker {
     @apply border border-gray-300 text-gray-900 text-sm rounded-xl w-full p-3 active:border-blue-600 active:ring-0 ring-offset-0 !important;
   }
-} */
+}

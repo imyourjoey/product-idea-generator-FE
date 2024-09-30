@@ -1,13 +1,13 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "@/components/HelloWorld.vue";
 import Joey from "@/Joey.vue";
+import Login from "@/components/Auth/Login.vue";
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: "/login",
+    name: "Login",
+    component: Login,
   },
   {
     path: "/joey",
