@@ -1,16 +1,10 @@
 @import "./base.css";
 @import "./tailwind.css";
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 0.575rem !important;
-}
+} */
 
 button {
   -webkit-tap-highlight-color: transparent;
-}
-
-#app {
-  max-width: 1040px;
-  margin: auto;
-  padding: 0.5rem 2rem;
 }
