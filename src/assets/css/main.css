@@ -8,3 +8,9 @@
 button {
   -webkit-tap-highlight-color: transparent;
 }
+
+#app {
+  max-width: 1040px;
+  margin: auto;
+  padding: 0.5rem 2rem;
+}

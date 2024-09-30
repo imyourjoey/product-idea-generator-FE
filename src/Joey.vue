@@ -1,15 +1,19 @@
 <template>
   <div>
-    <p class="mt-10">email</p>
+    <p>email</p>
     <input type="text" v-model="formData.email" />
     <p>password</p>
     <input type="text" v-model="formData.password" />
   </div>
   <br />
-  <button @click="submitData">Submit</button>
+  <button
+    @click="login"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  >
+    Submit
+  </button>
 
   <br />
-  Login Successful : {{ loginSuccessful }}
 </template>
 
 <script setup>
@@ -21,12 +25,11 @@ const formData = ref({
 });
 const responseData = ref(null);
 
-const loginSuccessful = ref(false);
-
-const submitData = async () => {
+const login = async () => {
   try {
     const response = await axios.post("/api/login", formData.value);
     responseData.value = response.data;
+    localStorage.setItem("token", response.data.data.token);
   } catch (err) {
     console.error("Error submitting data:", err);
   }
