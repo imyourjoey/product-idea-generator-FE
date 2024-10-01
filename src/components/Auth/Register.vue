@@ -43,7 +43,10 @@
 
   <div class="mt-2 text-lg text-gray-500">
     Have an account?
-    <span class="underline cursor-pointer" @click="navigateTo('/login')"
+    <span
+      class="underline cursor-pointer"
+      @click="navigateTo('/login')"
+      style="color: #8a2be2"
       >Sign in</span
     >
     now!
@@ -91,6 +94,7 @@ const register = async () => {
         .post("/api/register", formValue.value)
         .then((response) => {
           alert("Registration successful!");
+          navigateTo("/login");
         })
         .catch((err) => {
           alert(err.response.data.message);

@@ -26,12 +26,15 @@
   </n-form>
 
   <n-button @click="login" type="primary" size="large"
-    ><span class="font-medium text-lg">Log In</span></n-button
+    ><span class="font-medium text-lg">Sign In</span></n-button
   >
 
   <div class="mt-2 text-lg text-gray-500">
     Don't have an account?
-    <span class="underline cursor-pointer" @click="navigateTo('/register')"
+    <span
+      class="underline cursor-pointer"
+      @click="navigateTo('/register')"
+      style="color: #8a2be2"
       >Sign up</span
     >
     now!
@@ -73,7 +76,8 @@ const login = async () => {
         .then((response) => {
           responseData.value = response.data;
           localStorage.setItem("token", response.data.data.token);
-          alert("Login successful!");
+          localStorage.setItem("name", response.data.data.name);
+          navigateTo("/product-gen");
         })
         .catch((err) => {
           alert("Error submitting data:", err);
@@ -103,24 +107,4 @@ const size = ref("medium");
 
 //logout
 // Logout function to clear the token and perform any additional logout actions
-const logout = async () => {
-  try {
-    // Optionally, make an API call to logout on the server
-    await axios.post(
-      "/api/logout",
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    );
-  } catch (error) {
-    console.error("Error logging out:", error);
-  } finally {
-    // Clear the token from local storage
-    localStorage.removeItem("token");
-    alert("Logout successful!");
-  }
-};
 </script>

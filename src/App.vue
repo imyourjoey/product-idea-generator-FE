@@ -1,6 +1,6 @@
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
-    <Navbar />
+    <Navbar :key="currentRouteKey" />
     <div class="container">
       <router-view></router-view>
     </div>
@@ -9,6 +9,13 @@
 
 <script setup>
 import { NConfigProvider } from "naive-ui";
+import { useRoute } from "vue-router";
+import { computed } from "vue";
+const route = useRoute();
+
+const currentRouteKey = computed(() => {
+  return route.path;
+});
 
 import Navbar from "@/components/Navbar/Index.vue";
 

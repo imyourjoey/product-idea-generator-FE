@@ -9,7 +9,10 @@
 
       <div>
         <div class="text-xl mt-2">
-          <span class="text-blue-500 underline cursor-pointer"
+          <span
+            class="underline cursor-pointer"
+            style="color: #8a2be2"
+            @click="navigateTo('/register')"
             >Create an Account</span
           >
           to Try Out Now!
@@ -21,5 +24,6 @@
 
 <script setup>
 import Hero from "@/assets/hero/hero.webp";
-import Login from "@/components/Auth/Login.vue";
+import useNavigateTo from "../../utils/router";
+const navigateTo = useNavigateTo();
 </script>

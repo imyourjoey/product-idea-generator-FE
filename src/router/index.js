@@ -5,6 +5,7 @@ import Login from "@/components/Auth/Login.vue";
 import Register from "@/components/Auth/Register.vue";
 import Products from "@/components/Products/Index.vue";
 import Landing from "@/components/Landing/Index.vue";
+import GenerateProduct from "@/components/GenerateProduct/Index.vue";
 
 const routes = [
   {
@@ -32,11 +33,28 @@ const routes = [
     name: "Joey",
     component: Joey,
   },
+  {
+    path: "/product-gen",
+    name: "Generate Product",
+    component: GenerateProduct,
+  },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+});
+
+router.beforeEach((to, from, next) => {
+  const token = localStorage.getItem("token");
+
+  if ((to.name == "Login" || to.name == "Register") && token) {
+    next({ name: "Generate Product" });
+  } else if (to.name == "Generate Product" && !token) {
+    next({ name: "Login" });
+  } else {
+    next();
+  }
 });
 
 export default router;
