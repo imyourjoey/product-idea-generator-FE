@@ -1,4 +1,5 @@
 <template>
+  {{ aiResponse }}
   <div class="md:w-1/2">
     <template v-if="!fullPromptResponse">
       <div class="font-bold text-3xl my-4">
@@ -236,6 +237,16 @@ function handleCreateBrandSuccess() {
 const fullPromptResponse = ref("");
 const shortPromptResponse = ref("");
 
+const aiResponse = ref({
+  description: "",
+  estimatedCost: 0,
+  estimatedSellingPrice: 0,
+  estimatedUnitsSoldPerMonth: 0,
+  productName: "",
+  targetMarket: "",
+  uniqueSellingPoint: "",
+});
+
 const generateIdea = async () => {
   try {
     // Prepare the data to send
@@ -253,6 +264,16 @@ const generateIdea = async () => {
 
     fullPromptResponse.value = response.data.fullResponse;
     shortPromptResponse.value = response.data.shortResponse;
+
+    aiResponse.value = {
+      description: response.data.description,
+      estimatedCost: response.data.estimatedCost,
+      estimatedSellingPrice: response.data.estimatedSellingPrice,
+      estimatedUnitsSoldPerMonth: response.data.estimatedUnitsSoldPerMonth,
+      productName: response.data.productName,
+      targetMarket: response.data.targetMarket,
+      uniqueSellingPoint: response.data.uniqueSellingPoint,
+    };
 
     setTimeout(() => {
       loading.value = false;

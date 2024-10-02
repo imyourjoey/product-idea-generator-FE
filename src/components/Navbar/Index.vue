@@ -5,7 +5,7 @@
       @click="!userName ? navigateTo('/') : navigateTo('/product-gen')"
     >
       <img :src="ProduckLogoNoBg" alt="" width="40" />
-      <span class="text-2xl">
+      <span class="text-lg md:text-2xl">
         <n-gradient-text
           gradient="linear-gradient(90deg, #FEAC5E, #C779D0, #4BC0C8)"
           class="font-bold"
@@ -23,7 +23,7 @@
         v-if="!userName"
         ><span class="font-medium">Sign In</span></n-button
       >
-      <div v-else class="text-white">
+      <div v-else class="text-white md:text-base text-xs">
         Signed in as {{ userName }} |
         <span class="underline cursor-pointer" @click="logout">Sign Out</span>
       </div>
