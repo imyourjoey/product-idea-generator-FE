@@ -1,4 +1,19 @@
 <template>
+  <div v-if="showMenuIcon">
+    <n-tooltip placement="left" trigger="hover">
+      <template #trigger>
+        <LayoutTextSidebar
+          class="position absolute right-4 cursor-pointer hover:scale-[1.1]"
+          style="top: 65"
+          width="30"
+          height="30"
+          @click="showDrawer = true"
+        />
+      </template>
+      <span> Menu </span>
+    </n-tooltip>
+  </div>
+
   <n-space justify="space-between" class="px-4 py-2 bg-slate-950">
     <div
       class="flex items-center select-none cursor-pointer"
@@ -29,22 +44,51 @@
       </div>
     </div>
   </n-space>
+
+  <n-drawer v-model:show="showDrawer" width="340" placement="right">
+    <n-drawer-content>
+      <div
+        class="text-2xl font-bold mt-4 cursor-pointer"
+        @click="navigateTo('/product-gen')"
+      >
+        Generate Product Idea
+      </div>
+      <div
+        class="text-2xl font-bold cursor-pointer"
+        @click="navigateTo('/history')"
+      >
+        Product Idea History
+      </div>
+    </n-drawer-content>
+  </n-drawer>
 </template>
 <script setup>
 import { ref, onMounted } from "vue";
-import { NSpace, NGradientText, NButton } from "naive-ui";
+import {
+  NSpace,
+  NGradientText,
+  NButton,
+  NTooltip,
+  NDrawer,
+  NDrawerContent,
+} from "naive-ui";
 import ProduckLogoNoBg from "@/assets/icons/produck-logo-no-bg.png";
 import useNavigateTo from "../../utils/router";
 import axios from "@/utils/axios.js";
+import LayoutTextSidebar from "../../svgicons/LayoutTextSidebar.vue";
 
 const navigateTo = useNavigateTo();
 
+const showDrawer = ref(false);
+
 const userName = ref(null);
+const showMenuIcon = ref(false);
 
 const getNameFromLocalStorage = () => {
   const name = localStorage.getItem("name");
   if (name) {
     userName.value = name;
+    showMenuIcon.value = true;
   }
 };
 
