@@ -6,8 +6,14 @@ import Register from "@/components/Auth/Register.vue";
 import Products from "@/components/Products/Index.vue";
 import Landing from "@/components/Landing/Index.vue";
 import GenerateProduct from "@/components/GenerateProduct/Index.vue";
+import ProductIdeaHistory from "../components/GenerateProduct/ProductIdeaHistory.vue";
 
 const routes = [
+  {
+    path: "/history",
+    name: "History",
+    component: ProductIdeaHistory,
+  },
   {
     path: "/",
     name: "Landing",
@@ -50,7 +56,10 @@ router.beforeEach((to, from, next) => {
 
   if ((to.name == "Login" || to.name == "Register") && token) {
     next({ name: "Generate Product" });
-  } else if (to.name == "Generate Product" && !token) {
+  } else if (
+    (to.name == "Generate Product" || to.name == "History") &&
+    !token
+  ) {
     next({ name: "Login" });
   } else {
     next();

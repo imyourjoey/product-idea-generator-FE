@@ -136,5 +136,5 @@ const submitForm = async () => {
 };
 
 // dismiss modal
-const emits = defineEmits("create-brand-success");
+const emits = defineEmits(["create-brand-success"]);
 </script>

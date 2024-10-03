@@ -1,7 +1,7 @@
 <template>
   <n-config-provider :theme-overrides="themeOverrides">
     <Navbar :key="currentRouteKey" />
-    <div class="container">
+    <div :class="containerClass">
       <router-view></router-view>
     </div>
   </n-config-provider>
@@ -15,6 +15,10 @@ const route = useRoute();
 
 const currentRouteKey = computed(() => {
   return route.path;
+});
+
+const containerClass = computed(() => {
+  return route.path === "/history" ? "" : "container";
 });
 
 import Navbar from "@/components/Navbar/Index.vue";

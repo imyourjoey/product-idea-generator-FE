@@ -65,7 +65,7 @@ import { NButton, NSpin } from "naive-ui";
 import { defineProps, defineEmits, ref } from "vue";
 import IconHeartFill from "../../svgicons/IconHeartFill.vue";
 
-const emits = defineEmits("reset");
+const emits = defineEmits(["reset"]);
 
 const props = defineProps({
   response: {
