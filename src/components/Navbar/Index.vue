@@ -48,7 +48,7 @@
   <n-drawer v-model:show="showDrawer" width="340" placement="right">
     <n-drawer-content>
       <div
-        class="text-3xl font-bold mt-4 cursor-pointer hover:text-[#8a2be1]"
+        class="text-3xl font-bold cursor-pointer hover:text-[#8a2be1]"
         @click="showSubmenu = !showSubmenu"
       >
         Product Idea
