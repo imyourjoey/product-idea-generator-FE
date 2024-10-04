@@ -80,7 +80,7 @@ const login = async () => {
           navigateTo("/product-gen");
         })
         .catch((err) => {
-          alert("Error submitting data:", err);
+          alert("Your email or password is incorrect");
         });
     });
   } catch (err) {

@@ -35,7 +35,7 @@ const routes = [
     component: Login,
   },
   {
-    path: "/joey",
+    path: "/tnc",
     name: "Joey",
     component: Joey,
   },

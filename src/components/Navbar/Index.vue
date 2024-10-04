@@ -48,16 +48,37 @@
   <n-drawer v-model:show="showDrawer" width="340" placement="right">
     <n-drawer-content>
       <div
-        class="text-2xl font-bold mt-4 cursor-pointer"
-        @click="navigateTo('/product-gen')"
+        class="text-3xl font-bold mt-4 cursor-pointer hover:text-[#8a2be1]"
+        @click="showSubmenu = !showSubmenu"
       >
-        Generate Product Idea
+        Product Idea
+      </div>
+      <n-collapse-transition :show="showSubmenu">
+        <div
+          class="text-2xl font-bold cursor-pointer hover:text-[#8a2be1]"
+          @click="navigateTo('/product-gen')"
+        >
+          Generate
+        </div>
+        <div
+          class="text-2xl font-bold cursor-pointer hover:text-[#8a2be1]"
+          @click="navigateTo('/history')"
+        >
+          History
+        </div>
+      </n-collapse-transition>
+      <div class="cursor-pointer mt-2">
+        <a
+          class="text-3xl font-bold hover:text-[#8a2be1]"
+          href="mailto:joeylim016@gmail.com"
+          >Contact Us</a
+        >
       </div>
       <div
-        class="text-2xl font-bold cursor-pointer"
-        @click="navigateTo('/history')"
+        class="text-3xl mt-2 font-bold cursor-pointer hover:text-[#8a2be1]"
+        @click="navigateTo('/tnc')"
       >
-        Product Idea History
+        Terms of Service
       </div>
     </n-drawer-content>
   </n-drawer>
@@ -71,6 +92,7 @@ import {
   NTooltip,
   NDrawer,
   NDrawerContent,
+  NCollapseTransition,
 } from "naive-ui";
 import ProduckLogoNoBg from "@/assets/icons/produck-logo-no-bg.png";
 import useNavigateTo from "../../utils/router";
@@ -80,6 +102,7 @@ import LayoutTextSidebar from "../../svgicons/LayoutTextSidebar.vue";
 const navigateTo = useNavigateTo();
 
 const showDrawer = ref(false);
+const showSubmenu = ref(false);
 
 const userName = ref(null);
 const showMenuIcon = ref(false);

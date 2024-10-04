@@ -1,129 +1,78 @@
 <template>
-  <n-form
-    ref="formRef"
-    :label-width="100"
-    :model="formValue"
-    :rules="rules"
-    :size="size"
-    class="w-full md:w-1/2"
-  >
-    <n-form-item label="Name" path="name" class="mb-4">
-      <n-input v-model:value="formValue.name" placeholder="Input Name" />
-    </n-form-item>
+  <div class="text-gray-800">
+    <div class="max-w-3xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <h1 class="text-3xl font-bold text-center mb-4">Terms of Service</h1>
+      <p class="text-sm text-gray-600 mb-6">
+        <strong>Last Updated: 04/10/2024</strong>
+      </p>
 
-    <n-form-item label="Email" path="email" class="mb-4">
-      <n-input v-model:value="formValue.email" placeholder="Input Email" />
-    </n-form-item>
+      <p class="mb-4">
+        Welcome to <strong>Produck.ai</strong>! By accessing or using our
+        website located at <strong>product-ai.mycscums.com.my</strong> (the
+        “Site”), you agree to comply with and be bound by these Terms of
+        Service. If you do not agree to these terms, please do not use our Site.
+      </p>
 
-    <n-form-item label="Password" path="password" class="mb-4">
-      <n-input
-        v-model:value="formValue.password"
-        type="password"
-        placeholder="Input Password"
-      />
-    </n-form-item>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">1. Acceptance of Terms</h2>
+      <p class="mb-4">
+        By using our Site, you confirm that you are at least 18 years old or are
+        using the Site with parental or guardian consent.
+      </p>
 
-    <n-form-item label="Confirm Password" path="c_password" class="mb-4">
-      <n-input
-        v-model:value="formValue.c_password"
-        type="password"
-        placeholder="Confirm Password"
-      />
-    </n-form-item>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">2. Changes to Terms</h2>
+      <p class="mb-4">
+        We reserve the right to modify these Terms at any time. Changes will be
+        effective when posted on this Site. Your continued use of the Site after
+        any changes indicates your acceptance of the new Terms.
+      </p>
 
-    <n-button @click="register" color="#8a2be2">Register</n-button>
-  </n-form>
+      <h2 class="text-2xl font-semibold mt-6 mb-2">3. User Responsibilities</h2>
+      <p class="mb-4">
+        You agree to use the Site for lawful purposes and not to engage in any
+        activity that may disrupt the Site or its services.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">4. Intellectual Property</h2>
+      <p class="mb-4">
+        All content on this Site, including text, graphics, logos, and software,
+        is the property of <strong>Produck.ai</strong> or its content suppliers
+        and is protected by intellectual property laws.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">5. User Accounts</h2>
+      <p class="mb-4">
+        If you create an account on our Site, you are responsible for
+        maintaining the confidentiality of your account information and for all
+        activities that occur under your account.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">6. Third-Party Links</h2>
+      <p class="mb-4">
+        Our Site may contain links to third-party websites. We are not
+        responsible for the content or practices of those websites. Your use of
+        third-party websites is at your own risk.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">
+        7. Limitation of Liability
+      </h2>
+      <p class="mb-4">
+        To the maximum extent permitted by law,
+        <strong>Produck.ai</strong> shall not be liable for any indirect,
+        incidental, or consequential damages arising from your use of the Site.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">8. Governing Law</h2>
+      <p class="mb-4">
+        These Terms shall be governed by and construed in accordance with the
+        laws of Malaysia.
+      </p>
+
+      <h2 class="text-2xl font-semibold mt-6 mb-2">9. Contact Information</h2>
+      <p class="mb-4">
+        For any questions about these Terms, please contact us at
+        <strong>produck-ai@mycscums.com.my </strong>.
+      </p>
+    </div>
+  </div>
 </template>
-
-<script setup>
-import { ref } from "vue";
-import axios from "@/utils/axios.js";
-import { NFormItem, NForm, NInput, NButton } from "naive-ui";
-
-// Form data with name, email, password, and confirmed password fields
-const emptyFormValue = {
-  name: "",
-  email: "",
-  password: "",
-  c_password: "",
-};
-
-const formValue = ref({
-  name: "",
-  email: "",
-  password: "",
-  c_password: "",
-});
-
-// Ref for form element
-const formRef = ref(null);
-
-// Register function to validate the form and submit data
-const register = async () => {
-  try {
-    // Validate the form before submitting
-    formRef.value.validate((errors) => {
-      if (errors) {
-        // Return early if there are validation errors
-        return;
-      }
-
-      // Proceed with the submission if the form is valid
-      axios
-        .post("/api/register", formValue.value)
-        .then((response) => {
-          alert("Registration successful!");
-        })
-        .catch((err) => {
-          alert(err.response.data.message);
-          formValue.value = emptyFormValue;
-        });
-    });
-  } catch (err) {
-    alert("Something went wrong:", err);
-  }
-};
-
-// Validation rules
-const rules = {
-  name: {
-    required: true,
-    message: "Please input your name",
-    trigger: "blur",
-  },
-  email: {
-    required: true,
-    trigger: "blur",
-    validator: (rule, value) => {
-      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-      if (!emailPattern.test(value)) {
-        return new Error("Please enter a valid email address");
-      }
-      return true;
-    },
-  },
-  password: {
-    required: true,
-    trigger: "blur",
-    validator: (rule, value) => {
-      if (value.length < 8) {
-        return new Error("Password must be at least 8 characters long");
-      }
-      return true;
-    },
-  },
-  c_password: {
-    required: true,
-    trigger: "blur",
-    validator: (rule, value) => {
-      if (value !== formValue.value.password) {
-        return new Error("Passwords do not match");
-      }
-      return true;
-    },
-  },
-};
-
-// Example size property for form components
-const size = ref("medium");
-</script>
