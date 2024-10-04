@@ -1,7 +1,12 @@
 <template>
   <div class="p-4">
     <div class="text-3xl font-bold mb-4">Product Idea History</div>
-    <n-data-table :columns="columns" :data="history" :pagination="pagination" />
+    <n-data-table
+      :columns="columns"
+      :data="history"
+      :pagination="pagination"
+      :scroll-x="500"
+    />
   </div>
 
   <n-modal v-model:show="modalVisible" title="My Modal">
