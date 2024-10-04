@@ -24,8 +24,16 @@
         :key="index"
         class="mb-2 card"
       >
-        <div style="margin-left: 2px">Product {{ index + 1 }}</div>
-        <n-form-item label="Name" class="mb-1">
+        <div class="flex justify-between items-center">
+          <div style="margin-left: 2px" class="text-lg font-semibold">
+            Product {{ index + 1 }}
+          </div>
+          <n-button @click="removeProduct(index)" size="small" class="ml-4">
+            <IconTrash />
+          </n-button>
+        </div>
+
+        <n-form-item label="Name" class="mb-1 mt-3">
           <n-input
             v-model:value="product.name"
             placeholder="Enter product name"
@@ -44,7 +52,7 @@
 
       <div class="mb-4">
         <n-button @click="addProduct" type="default" size="small">
-          Add Product
+          + Add Product
         </n-button>
       </div>
     </n-form>
@@ -59,6 +67,7 @@
 import { ref, defineEmits } from "vue";
 import axios from "@/utils/axios.js";
 import { NForm, NFormItem, NInput, NButton } from "naive-ui";
+import IconTrash from "../../svgicons/IconTrash.vue";
 
 // Reactive form model
 const formModel = ref({
@@ -90,6 +99,11 @@ const addProduct = () => {
     name: "",
     description: "",
   });
+};
+
+// Method to remove a product
+const removeProduct = (index) => {
+  formModel.value.products.splice(index, 1);
 };
 
 // Submit form handler with validation for products

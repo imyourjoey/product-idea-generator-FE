@@ -36,7 +36,11 @@
           </n-button>
 
           <n-collapse-transition :show="selectedBrand != null">
-            <BrandProductsInfo :brand-products="brandProducts" class="mt-4" />
+            <BrandProductsInfo
+              :brand-products="brandProducts"
+              class="mt-4"
+              @update-successful="getProducts"
+            />
           </n-collapse-transition>
         </n-collapse-transition>
         <div class="mt-4">
