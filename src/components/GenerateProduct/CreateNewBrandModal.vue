@@ -22,7 +22,7 @@
       <div
         v-for="(product, index) in formModel.products"
         :key="index"
-        class="mb-2 card"
+        class="mb-2 card shadow"
       >
         <div class="flex justify-between items-center">
           <div style="margin-left: 2px" class="text-lg font-semibold">

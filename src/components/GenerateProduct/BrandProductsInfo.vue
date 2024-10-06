@@ -1,5 +1,5 @@
 <template>
-  <div class="card px-6 pb-6">
+  <div class="card px-6 pb-6 mt-5 shadow">
     <div class="text-xl font-semibold mb-2">Brand Profile</div>
 
     <div class="text-gray-500">Name</div>

@@ -7,7 +7,7 @@
       </p>
 
       <p class="mb-4">
-        Welcome to <strong>Produck.ai</strong>! By accessing or using our
+        Welcome to <strong>innoBAT.ai</strong>! By accessing or using our
         website located at <strong>product-ai.mycscums.com.my</strong> (the
         “Site”), you agree to comply with and be bound by these Terms of
         Service. If you do not agree to these terms, please do not use our Site.
@@ -35,7 +35,7 @@
       <h2 class="text-2xl font-semibold mt-6 mb-2">4. Intellectual Property</h2>
       <p class="mb-4">
         All content on this Site, including text, graphics, logos, and software,
-        is the property of <strong>Produck.ai</strong> or its content suppliers
+        is the property of <strong>innoBAT.ai</strong> or its content suppliers
         and is protected by intellectual property laws.
       </p>
 
@@ -58,7 +58,7 @@
       </h2>
       <p class="mb-4">
         To the maximum extent permitted by law,
-        <strong>Produck.ai</strong> shall not be liable for any indirect,
+        <strong>innoBAT.ai</strong> shall not be liable for any indirect,
         incidental, or consequential damages arising from your use of the Site.
       </p>
 

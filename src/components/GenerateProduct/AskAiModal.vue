@@ -14,7 +14,7 @@
         gradient="linear-gradient(90deg, #D68A3C, #A05FAE, #3BA2A9)"
         class="font-bold"
       >
-        Produck.ai</n-gradient-text
+        innoBAT.ai</n-gradient-text
       >
     </div>
     <n-input

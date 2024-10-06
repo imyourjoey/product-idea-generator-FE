@@ -1,7 +1,7 @@
 <template>
   <div class="my-4">
     <div class="text-4xl font-bold">Create an account</div>
-    <div class="text-lg text-gray-500">to start using produck.ai</div>
+    <div class="text-lg text-gray-500">to start using innoBAT.ai</div>
   </div>
 
   <n-form

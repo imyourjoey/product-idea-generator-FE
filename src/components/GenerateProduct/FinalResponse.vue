@@ -3,8 +3,7 @@
   <div
     class="text-sm text-gray-500 mb-3 mt-2 text-right flex justify-end align-center"
   >
-    - crafted with <IconHeartFill class="mx-1" width="14" /> by the Produck.ai
-    team
+    - crafted with <IconHeartFill class="mx-1" width="14" /> by the innoBAT team
   </div>
 
   <div class="card">

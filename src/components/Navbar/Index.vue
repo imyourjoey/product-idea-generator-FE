@@ -19,13 +19,13 @@
       class="flex items-center select-none cursor-pointer"
       @click="!userName ? navigateTo('/') : navigateTo('/product-gen')"
     >
-      <img :src="ProduckLogoNoBg" alt="" width="40" />
+      <img :src="innoBatLogoNoBg" alt="" width="40" class="me-1 my-1" />
       <span class="text-lg md:text-2xl">
         <n-gradient-text
           gradient="linear-gradient(90deg, #FEAC5E, #C779D0, #4BC0C8)"
           class="font-bold"
         >
-          produck.ai
+          innoBAT.ai
         </n-gradient-text>
       </span>
     </div>
@@ -47,22 +47,37 @@
 
   <n-drawer v-model:show="showDrawer" width="340" placement="right">
     <n-drawer-content>
-      <div
-        class="text-3xl font-bold cursor-pointer hover:text-[#8a2be1]"
-        @click="showSubmenu = !showSubmenu"
-      >
-        Product Idea
+      <div class="flex items-center" @click="showSubmenu = !showSubmenu">
+        <div class="text-3xl font-bold cursor-pointer hover:text-[#8a2be1]">
+          Product Idea
+        </div>
+
+        <IconChevronDown
+          class="ms-2"
+          :class="{
+            'rotate-180': showSubmenu,
+            'rotate-0': !showSubmenu,
+            'transition-transform duration-300': true,
+          }"
+        />
       </div>
+
       <n-collapse-transition :show="showSubmenu">
         <div
           class="text-2xl font-bold cursor-pointer hover:text-[#8a2be1]"
-          @click="navigateTo('/product-gen')"
+          @click="
+            showDrawer = false;
+            navigateTo('/product-gen');
+          "
         >
           Generate
         </div>
         <div
           class="text-2xl font-bold cursor-pointer hover:text-[#8a2be1]"
-          @click="navigateTo('/history')"
+          @click="
+            showDrawer = false;
+            navigateTo('/history');
+          "
         >
           History
         </div>
@@ -76,7 +91,10 @@
       </div>
       <div
         class="text-3xl mt-2 font-bold cursor-pointer hover:text-[#8a2be1]"
-        @click="navigateTo('/tnc')"
+        @click="
+          showDrawer = false;
+          navigateTo('/tnc');
+        "
       >
         Terms of Service
       </div>
@@ -94,10 +112,11 @@ import {
   NDrawerContent,
   NCollapseTransition,
 } from "naive-ui";
-import ProduckLogoNoBg from "@/assets/icons/produck-logo-no-bg.png";
+import innoBatLogoNoBg from "@/assets/icons/innobat-removebg-logo.png";
 import useNavigateTo from "../../utils/router";
 import axios from "@/utils/axios.js";
 import LayoutTextSidebar from "../../svgicons/LayoutTextSidebar.vue";
+import IconChevronDown from "@/svgicons/IconChevronDown.vue";
 
 const navigateTo = useNavigateTo();
 
@@ -142,3 +161,18 @@ const logout = async () => {
   }
 };
 </script>
+
+<style scoped>
+.rotate-180 {
+  transform: rotate(180deg);
+}
+.rotate-0 {
+  transform: rotate(0deg);
+}
+.transition-transform {
+  transition-property: transform;
+}
+.duration-300 {
+  transition-duration: 300ms;
+}
+</style>
