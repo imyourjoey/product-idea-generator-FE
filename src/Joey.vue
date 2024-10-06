@@ -8,7 +8,7 @@
 
       <p class="mb-4">
         Welcome to <strong>innoBAT.ai</strong>! By accessing or using our
-        website located at <strong>product-ai.mycscums.com.my</strong> (the
+        website located at <strong>innobat.mycscums.com.my</strong> (the
         “Site”), you agree to comply with and be bound by these Terms of
         Service. If you do not agree to these terms, please do not use our Site.
       </p>
@@ -71,7 +71,7 @@
       <h2 class="text-2xl font-semibold mt-6 mb-2">9. Contact Information</h2>
       <p class="mb-4">
         For any questions about these Terms, please contact us at
-        <strong>produck-ai@mycscums.com.my </strong>.
+        <strong>innobat.mycscums.com.my</strong>.
       </p>
     </div>
   </div>

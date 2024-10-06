@@ -23,11 +23,6 @@
           >
           to Try Out Now!
         </div>
-        <div class="card md:w-1/2 mt-4 shadow">
-          <div class="font-bold">Demo Account</div>
-          <div>email: tester@gmail.com</div>
-          <div>password: password</div>
-        </div>
       </div>
     </div>
   </div>
