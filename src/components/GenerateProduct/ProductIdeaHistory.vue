@@ -1,5 +1,15 @@
 <template>
-  <div class="p-4">
+  <div v-if="isMobile" class="p-4">
+    <div class="w-full flex-row justify-center">
+      <FeelingBlue width="300" height="200" class="m-auto mt-20" />
+      <div class="text-3xl text-center font-bold mt-2">Oops!</div>
+      <div class="text-center mt-3 text-gray-500">
+        This feature prefers the big screen! For the best experience, please use
+        a PC or laptop. Thanks for understanding! 💻😊
+      </div>
+    </div>
+  </div>
+  <div class="p-4" v-else>
     <div class="text-3xl font-bold mb-4">Product Idea History</div>
     <n-data-table
       :columns="columns"
@@ -19,16 +29,23 @@
 </template>
 
 <script setup>
-import { ref, h, onMounted } from "vue";
+import { ref, h, onMounted, computed } from "vue";
 import { NButton, NDataTable, NModal } from "naive-ui";
 import axios from "@/utils/axios.js";
 import { getCapitalizedCategory } from "@/helper/productCategory.js";
 import AskAiModal from "./AskAiModal.vue";
 import MessageLogModal from "./MessageLogModal.vue";
 import { formatDate } from "@/helper/dateHelper.js";
+import FeelingBlue from "../../svgicons/FeelingBlue.vue";
 
 const modalVisible = ref(false);
 const messageLogModalVisible = ref(false);
+
+const isMobile = computed(() => {
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  );
+});
 
 // Define columns for the table
 function createColumns(sendMail, showMessageLogs) {
