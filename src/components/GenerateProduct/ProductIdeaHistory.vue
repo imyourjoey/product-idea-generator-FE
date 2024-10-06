@@ -5,7 +5,7 @@
       <div class="text-3xl text-center font-bold mt-2">Oops!</div>
       <div class="text-center mt-3 text-gray-500">
         This feature prefers the big screen! For the best experience, please use
-        a PC or laptop. Thanks for understanding! 💻😊
+        a PC or laptop. Thanks for understanding!
       </div>
     </div>
   </div>

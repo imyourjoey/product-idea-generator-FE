@@ -47,7 +47,16 @@
 
   <n-drawer v-model:show="showDrawer" width="340" placement="right">
     <n-drawer-content>
-      <div class="flex items-center" @click="showSubmenu = !showSubmenu">
+      <div
+        class="text-3xl font-bold cursor-pointer hover:text-[#8a2be1]"
+        @click="
+          showDrawer = false;
+          navigateTo('/dashboard');
+        "
+      >
+        Dashboard
+      </div>
+      <div class="flex items-center mt-2" @click="showSubmenu = !showSubmenu">
         <div class="text-3xl font-bold cursor-pointer hover:text-[#8a2be1]">
           Product Idea
         </div>

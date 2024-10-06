@@ -18,7 +18,8 @@ const currentRouteKey = computed(() => {
 });
 
 const containerClass = computed(() => {
-  return route.path === "/history" ? "" : "container";
+  const routesWithoutContainer = ["/history", "/dashboard"];
+  return routesWithoutContainer.includes(route.path) ? "" : "container";
 });
 
 import Navbar from "@/components/Navbar/Index.vue";

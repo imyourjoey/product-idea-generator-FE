@@ -7,6 +7,7 @@ import Products from "@/components/Products/Index.vue";
 import Landing from "@/components/Landing/Index.vue";
 import GenerateProduct from "@/components/GenerateProduct/Index.vue";
 import ProductIdeaHistory from "../components/GenerateProduct/ProductIdeaHistory.vue";
+import Dashboard from "@/components/Dashboard/Index.vue";
 
 const routes = [
   {
@@ -43,6 +44,11 @@ const routes = [
     path: "/product-gen",
     name: "Generate Product",
     component: GenerateProduct,
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: Dashboard,
   },
 ];
 
