@@ -24,17 +24,15 @@
           to Try Out Now!
         </div>
       </div>
-      <div class="mt-8 text-sm">
+      <div class="mt-6 md:mt-8 text-sm md:border-0 border-b-2 pb-6">
         <div class="font-semibold">This is a demo website</div>
         <div class="font-semibold">Use the credentials below to sign in</div>
-        <div class="text-gray-800">Username: tester@gmail.com</div>
+        <div class="text-gray-800">Email: tester@gmail.com</div>
         <div class="text-gray-800">Password: password</div>
       </div>
     </div>
   </div>
-  <div
-    class="md:my-20 md:text-4xl text-3xl font-bold md:text-center mt-12 mb-3"
-  >
+  <div class="md:my-20 md:text-4xl text-3xl font-bold md:text-center mt-6 mb-3">
     Watch a 1-minute video to get started!
   </div>
   <div class="relative w-full pb-[56.25%] overflow-hidden rounded-xl shadow-xl">
